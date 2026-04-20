@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://di0q37lyfxuhw"]
+
+[ext_resource type="Sky" uid="uid://bvfgeg77mfnwk" path="res://asset/texture/NightSkyHDRI007_1K/NightSkyHDRI007_1K.tres" id="1_ci171"]
+[ext_resource type="Texture2D" uid="uid://cmsssbdh6e17b" path="res://asset/texture/Grass005_1K-JPG (1)/Grass005_1K-JPG_Color.jpg" id="1_d6soc"]
+[ext_resource type="Image" uid="uid://c3war1wxidvc4" path="res://scene/map/Heightmap_0_0.res" id="1_rgtto"]
+[ext_resource type="Texture2D" uid="uid://bblld7xwu6slm" path="res://asset/texture/Grass005_1K-JPG (1)/Grass005_1K-JPG_NormalGL.jpg" id="2_uhta6"]
+[ext_resource type="Texture2D" uid="uid://bwsd1qcwowjkr" path="res://asset/texture/Grass005_1K-JPG (1)/Grass005_1K-JPG_Roughness.jpg" id="3_ewrs0"]
+[ext_resource type="Texture2D" uid="uid://c4ioayf3ifguv" path="res://asset/texture/Road007_1K-JPG/Road007_1K-JPG_Color.jpg" id="4_pbemj"]
+[ext_resource type="Texture2D" uid="uid://8kwam5d8wfgo" path="res://asset/texture/Road007_1K-JPG/Road007_1K-JPG_NormalGL.jpg" id="5_ci171"]
+[ext_resource type="Image" uid="uid://trrfbii3jej3" path="res://scene/map/Splatmap_0_0_0.res" id="5_d60jh"]
+[ext_resource type="Texture2D" uid="uid://d1a7ktwy83s68" path="res://asset/texture/Road007_1K-JPG/Road007_1K-JPG_Roughness.jpg" id="6_w2mgo"]
+[ext_resource type="Texture2D" uid="uid://b4m60c50krrut" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_Color.jpg" id="7_ce1f5"]
+[ext_resource type="Texture2D" uid="uid://hgjfqs4lnw3u" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_NormalGL.jpg" id="8_yxwfw"]
+[ext_resource type="Texture2D" uid="uid://xgtkrury32aw" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_Roughness.jpg" id="9_t1ou2"]
+[ext_resource type="PackedScene" uid="uid://6px7xjs10nlc" path="res://scene/proto_controller.tscn" id="13_44fbv"]
+
+[sub_resource type="Environment" id="Environment_xkx26"]
+background_mode = 2
+sky = ExtResource("1_ci171")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_23w2h"]
+name = "grass"
+albedoTexture = ExtResource("1_d6soc")
+normalTexture = ExtResource("2_uhta6")
+roughnessTexture = ExtResource("3_ewrs0")
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_3usmy"]
+name = "asphalt"
+albedoTexture = ExtResource("4_pbemj")
+normalTexture = ExtResource("5_ci171")
+roughnessTexture = ExtResource("6_w2mgo")
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_vnsgl"]
+albedoTexture = ExtResource("7_ce1f5")
+normalTexture = ExtResource("8_yxwfw")
+roughnessTexture = ExtResource("9_t1ou2")
+
+[sub_resource type="TextureSetsResource" id="TextureSetsResource_h4w2u"]
+textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_23w2h"), SubResource("TextureSetResource_3usmy"), SubResource("TextureSetResource_vnsgl")])
+
+[sub_resource type="ZoneResource" id="ZoneResource_wpp1k"]
+heightMapImage = ExtResource("1_rgtto")
+splatmapsImage = Array[Image]([ExtResource("5_d60jh")])
+
+[sub_resource type="ZonesResource" id="ZonesResource_h0nt1"]
+zones = Array[ZoneResource]([SubResource("ZoneResource_wpp1k")])
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6soc"]
+size = Vector3(244.2883, 1, 244.27667)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l8r8p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gmpll"]
+size = Vector3(1, 0.001, 1)
+
+[node name="map" type="Node3D" unique_id=400858358]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=975647274]
+environment = SubResource("Environment_xkx26")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=769150406]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="TerraBrush" type="TerraBrush" parent="." unique_id=77283939]
+dataPath = "res://scene/map"
+textureSets = SubResource("TextureSetsResource_h4w2u")
+terrainZones = SubResource("ZonesResource_h0nt1")
+metadata/_edit_lock_ = false
+
+[node name="Node3D" type="Node3D" parent="." unique_id=342167807]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=624645277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7889252, -0.11882782, -2.5128937)
+shape = SubResource("BoxShape3D_d6soc")
+
+[node name="safe zone" type="Node3D" parent="." unique_id=597149873]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="safe zone" unique_id=58974302]
+transform = Transform3D(129.49153, 0, 0, 0, 0.3541675, 0, 0, 0, 82.0048, -62.95159, 0.3456211, 86.355255)
+mesh = SubResource("BoxMesh_l8r8p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="safe zone/MeshInstance3D" unique_id=72940425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49949998, 0)
+shape = SubResource("BoxShape3D_gmpll")
+
+[node name="ProtoController2" parent="." unique_id=1080846728 instance=ExtResource("13_44fbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411692, 0, -15.259129)
+
+[editable path="ProtoController2"]

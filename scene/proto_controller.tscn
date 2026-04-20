@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://6px7xjs10nlc"]
+
+[ext_resource type="Script" uid="uid://pgswo066ih67" path="res://script/character_03.gd" id="1_lme34"]
+[ext_resource type="PackedScene" uid="uid://curh1xccwvytk" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/ak47.fbx" id="2_mikyi"]
+[ext_resource type="PackedScene" uid="uid://dcyh457nemrm4" path="res://scene/bullet.tscn" id="4_bqoe2"]
+[ext_resource type="PackedScene" uid="uid://jfwkiyg2guw6" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/shotgun.fbx" id="4_q0ujs"]
+[ext_resource type="PackedScene" uid="uid://cr4venp267bfj" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/rocketlaucher.fbx" id="5_qr3lo"]
+[ext_resource type="PackedScene" uid="uid://hv7shp1aiy6b" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/mac10.fbx" id="6_qr3lo"]
+[ext_resource type="PackedScene" uid="uid://cmvm2qwblftuw" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/pew.fbx" id="7_158px"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
+
+[node name="ProtoController" type="CharacterBody3D" unique_id=1080846728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
+script = ExtResource("1_lme34")
+bullet_scene = ExtResource("4_bqoe2")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=890973139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=818356850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="Head" type="Node3D" parent="." unique_id=127433028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1728271738]
+
+[node name="wepon_manger" type="Node3D" parent="Head/Camera3D" unique_id=608155912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
+
+[node name="FPS_Rig" type="Node3D" parent="Head/Camera3D/wepon_manger" unique_id=1418466901]
+
+[node name="ak47" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=84019092 instance=ExtResource("2_mikyi")]
+transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, 0.52751446, 1.3737454, -0.38223648)
+
+[node name="shotgun" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1325507123 instance=ExtResource("4_q0ujs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1340649, 0.41975784)
+
+[node name="rocketlaucher" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1954884506 instance=ExtResource("5_qr3lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12700653, 0.9599633, 0.4386444)
+
+[node name="mac10" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1369930314 instance=ExtResource("6_qr3lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4351349, 0.4010811)
+
+[node name="pew" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1840987090 instance=ExtResource("7_158px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24533749, 1.3974613, 0.37392807)
+
+[node name="bullet" parent="." unique_id=209697533 instance=ExtResource("4_bqoe2")]
+transform = Transform3D(2, 0, 0, 0, 0.0031067438, 1.9999976, 0, -1.9999976, 0.0031067438, 0.5580797, 1.4126816, -1.0644264)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1736519447]
+
+[editable path="bullet"]
+[editable path="bullet/bullet1"]

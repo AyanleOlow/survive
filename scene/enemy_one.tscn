@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dyjn5hefnvec6"]
+
+[ext_resource type="PackedScene" uid="uid://bdnbkyk5ehc6h" path="res://asset/Characters_psx (1)/Characters_psx/Models/Killers/Character_Monster_01.fbx" id="1_hwag2"]
+
+[node name="enemy one" type="Node3D" unique_id=480861739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07624757, 0, 0)
+
+[node name="Character_Monster_01" parent="." unique_id=1427550170 instance=ExtResource("1_hwag2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.940787, 0, -12.409053)

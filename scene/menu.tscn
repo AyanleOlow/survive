@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cnjcq2kvyafpj"]
+
+[ext_resource type="Texture2D" uid="uid://1bnpuaex5jja" path="res://asset/samurai.png" id="1_e5g8k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hxod"]
+texture = ExtResource("1_e5g8k")
+
+[sub_resource type="FontVariation" id="FontVariation_su00k"]
+
+[sub_resource type="FontVariation" id="FontVariation_e5g8k"]
+base_font = SubResource("FontVariation_su00k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hxod"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 7
+
+[node name="Control" type="Control" unique_id=35015434]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -123.0
+offset_right = 16.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=137636618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 121.0
+offset_right = -17.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8hxod")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=572045512]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48700002
+anchor_top = 0.90000004
+anchor_right = 0.48700002
+anchor_bottom = 0.90000004
+offset_left = -211.02405
+offset_top = -118.20001
+offset_right = 209.97595
+offset_bottom = 80.79999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=949311687]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_e5g8k")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
+text = "start game"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1864408245]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_e5g8k")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
+text = "character"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2044165296]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_e5g8k")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
+text = "settings"
