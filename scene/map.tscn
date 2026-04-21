@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://hgjfqs4lnw3u" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_NormalGL.jpg" id="8_yxwfw"]
 [ext_resource type="Texture2D" uid="uid://xgtkrury32aw" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_Roughness.jpg" id="9_t1ou2"]
 [ext_resource type="PackedScene" uid="uid://6px7xjs10nlc" path="res://scene/proto_controller.tscn" id="13_44fbv"]
+[ext_resource type="PackedScene" uid="uid://b4gwb07a6jrjx" path="res://scene/store.tscn" id="14_l8r8p"]
 
 [sub_resource type="Environment" id="Environment_xkx26"]
 background_mode = 2
@@ -50,10 +51,16 @@ zones = Array[ZoneResource]([SubResource("ZoneResource_wpp1k")])
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6soc"]
 size = Vector3(244.2883, 1, 244.27667)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmpll"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_l8r8p"]
+material = SubResource("StandardMaterial3D_gmpll")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmpll"]
 size = Vector3(1, 0.001, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8r8p"]
+size = Vector3(1.9370117, 1, 1)
 
 [node name="map" type="Node3D" unique_id=400858358]
 
@@ -89,4 +96,14 @@ shape = SubResource("BoxShape3D_gmpll")
 [node name="ProtoController2" parent="." unique_id=1080846728 instance=ExtResource("13_44fbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411692, 0, -15.259129)
 
+[node name="Node3D2" parent="." unique_id=625243539 instance=ExtResource("14_l8r8p")]
+transform = Transform3D(1.1719583, 0, 0, 0, 1.1719583, 0, 0, 0, 1.1719583, -6.892686, 0.851676, -13.477838)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2" unique_id=335364870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46850586, 0, 0)
+shape = SubResource("BoxShape3D_l8r8p")
+disabled = true
+
 [editable path="ProtoController2"]
+[editable path="ProtoController2/bullet"]
+[editable path="ProtoController2/bullet/bullet1"]

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b4gwb07a6jrjx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv45n"]
+albedo_color = Color(0.4139412, 0.17558044, 0.050519876, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nchuc"]
+material = SubResource("StandardMaterial3D_xv45n")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24njt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwrk3"]
+albedo_color = Color(0.26388845, 0.25873172, 0.20574176, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tq3ax"]
+material = SubResource("StandardMaterial3D_fwrk3")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1g8jm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2f7q"]
+albedo_color = Color(0.68751633, 0.021579001, 0.069884874, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mguni"]
+material = SubResource("StandardMaterial3D_g2f7q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myxlr"]
+
+[node name="store" type="Node3D" unique_id=625243539]
+
+[node name="stand" type="MeshInstance3D" parent="." unique_id=1153110129]
+transform = Transform3D(2.5935135, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nchuc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stand" unique_id=1357448160]
+shape = SubResource("BoxShape3D_24njt")
+
+[node name="pole" type="MeshInstance3D" parent="." unique_id=1610343598]
+transform = Transform3D(0.17313005, 0, 0, 0, 0.78198004, 0, 0, 0, 0.21897055, -1.2248659, 1.2654791, 0.38725734)
+mesh = SubResource("CylinderMesh_tq3ax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pole" unique_id=854178869]
+shape = SubResource("CylinderShape3D_1g8jm")
+
+[node name="pole2" type="MeshInstance3D" parent="." unique_id=38772846]
+transform = Transform3D(0.17313005, 0, 0, 0, 0.78198004, 0, 0, 0, 0.21897055, 1.1943767, 1.2654791, 0.38725734)
+mesh = SubResource("CylinderMesh_tq3ax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pole2" unique_id=167348139]
+shape = SubResource("CylinderShape3D_1g8jm")
+
+[node name="pole3" type="MeshInstance3D" parent="." unique_id=1969545234]
+transform = Transform3D(0.17313005, 0, 0, 0, 1.2721176, 0, 0, 0, 0.21897055, 1.1943767, 0.76632106, -1.6365654)
+mesh = SubResource("CylinderMesh_tq3ax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pole3" unique_id=466385637]
+shape = SubResource("CylinderShape3D_1g8jm")
+
+[node name="pole4" type="MeshInstance3D" parent="." unique_id=1693991089]
+transform = Transform3D(0.17313005, 0, 0, 0, 1.2721176, 0, 0, 0, 0.21897055, -1.2204031, 0.76632106, -1.5990465)
+mesh = SubResource("CylinderMesh_tq3ax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pole4" unique_id=1122625125]
+shape = SubResource("CylinderShape3D_1g8jm")
+
+[node name="roof" type="MeshInstance3D" parent="." unique_id=509001337]
+transform = Transform3D(2.7752564, 0, 0, 0, 0.1778692, 0, 0, 0, 3.1385741, -0.05304104, 1.9867983, -0.16012192)
+mesh = SubResource("BoxMesh_mguni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="roof" unique_id=222822882]
+shape = SubResource("BoxShape3D_myxlr")
