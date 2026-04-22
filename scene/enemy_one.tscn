@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://cqvm4xv0go01e" path="res://asset/Assets/gunplay/gunplay rg.otf" id="1_hwag2"]
 [ext_resource type="Script" uid="uid://bimej14l7hprl" path="res://scene/enemy.gd" id="1_nbr0x"]
+[ext_resource type="PackedScene" uid="uid://bhguvnepecvb4" path="res://scene/damge_number.tscn" id="3_8i365"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbr0x"]
 albedo_color = Color(0.87894803, 0, 0.1310986, 1)
@@ -17,7 +18,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07624757, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=741761118]
 script = ExtResource("1_nbr0x")
-speed = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=854515139]
 mesh = SubResource("CapsuleMesh_8i365")
@@ -27,9 +27,13 @@ mesh = SubResource("CapsuleMesh_8i365")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/MeshInstance3D/StaticBody3D" unique_id=2130629752]
 shape = SubResource("ConcavePolygonShape3D_a2jcu")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1326831060]
+[node name="Label3D" type="Label3D" parent="CharacterBody3D" unique_id=1326831060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2015243, 0)
 pixel_size = 0.01
 billboard = 1
 text = "enemy"
 font = ExtResource("1_hwag2")
+
+[node name="DamgeNumber" parent="CharacterBody3D" unique_id=616350947 instance=ExtResource("3_8i365")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.604874, 0.7)
+visible = false

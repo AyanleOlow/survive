@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bhguvnepecvb4"]
+
+[ext_resource type="Script" uid="uid://dt03nrio5712i" path="res://damge_number.gd" id="1_tiu1r"]
+[ext_resource type="FontFile" uid="uid://cqvm4xv0go01e" path="res://asset/Assets/gunplay/gunplay rg.otf" id="2_31mpw"]
+
+[sub_resource type="Animation" id="Animation_jt6jf"]
+resource_name = "new_animation"
+length = 1.8666667
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("anchore/Label3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83f2b"]
+_data = {
+&"new_animation": SubResource("Animation_jt6jf")
+}
+
+[node name="DamgeNumber" type="Node3D" unique_id=616350947]
+script = ExtResource("1_tiu1r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=865800379 groups=["player"]]
+libraries/ = SubResource("AnimationLibrary_83f2b")
+autoplay = &"new_animation"
+
+[node name="anchore" type="Node3D" parent="." unique_id=759151994]
+
+[node name="Label3D" type="Label3D" parent="anchore" unique_id=788067635]
+transform = Transform3D(1, 0, 0, 0, 1.0543528, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+render_priority = 29
+modulate = Color(0.82232994, 0.8100946, 0.07557044, 1)
+text = "123"
+font = ExtResource("2_31mpw")
+font_size = 55
+outline_size = 25
