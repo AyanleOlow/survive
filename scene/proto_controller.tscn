@@ -19,7 +19,7 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=1080846728]
+[node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 script = ExtResource("1_lme34")
 bullet_scene = ExtResource("4_bqoe2")

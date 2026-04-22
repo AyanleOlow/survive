@@ -15,9 +15,22 @@ run/main_scene="uid://di0q37lyfxuhw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/csg_converter/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+player=""
 
 [input]
 

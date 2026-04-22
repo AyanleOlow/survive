@@ -1,57 +1,16 @@
 [gd_scene format=3 uid="uid://di0q37lyfxuhw"]
 
-[ext_resource type="Sky" uid="uid://bvfgeg77mfnwk" path="res://asset/texture/NightSkyHDRI007_1K/NightSkyHDRI007_1K.tres" id="1_ci171"]
-[ext_resource type="Texture2D" uid="uid://cmsssbdh6e17b" path="res://asset/texture/Grass005_1K-JPG (1)/Grass005_1K-JPG_Color.jpg" id="1_d6soc"]
-[ext_resource type="Image" uid="uid://c3war1wxidvc4" path="res://scene/map/Heightmap_0_0.res" id="1_rgtto"]
-[ext_resource type="Texture2D" uid="uid://bblld7xwu6slm" path="res://asset/texture/Grass005_1K-JPG (1)/Grass005_1K-JPG_NormalGL.jpg" id="2_uhta6"]
-[ext_resource type="Texture2D" uid="uid://bwsd1qcwowjkr" path="res://asset/texture/Grass005_1K-JPG (1)/Grass005_1K-JPG_Roughness.jpg" id="3_ewrs0"]
-[ext_resource type="Texture2D" uid="uid://c4ioayf3ifguv" path="res://asset/texture/Road007_1K-JPG/Road007_1K-JPG_Color.jpg" id="4_pbemj"]
-[ext_resource type="Texture2D" uid="uid://8kwam5d8wfgo" path="res://asset/texture/Road007_1K-JPG/Road007_1K-JPG_NormalGL.jpg" id="5_ci171"]
-[ext_resource type="Image" uid="uid://trrfbii3jej3" path="res://scene/map/Splatmap_0_0_0.res" id="5_d60jh"]
-[ext_resource type="Texture2D" uid="uid://d1a7ktwy83s68" path="res://asset/texture/Road007_1K-JPG/Road007_1K-JPG_Roughness.jpg" id="6_w2mgo"]
-[ext_resource type="Texture2D" uid="uid://b4m60c50krrut" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_Color.jpg" id="7_ce1f5"]
-[ext_resource type="Texture2D" uid="uid://hgjfqs4lnw3u" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_NormalGL.jpg" id="8_yxwfw"]
-[ext_resource type="Texture2D" uid="uid://xgtkrury32aw" path="res://asset/texture/Rock035_1K-JPG/Rock035_1K-JPG_Roughness.jpg" id="9_t1ou2"]
 [ext_resource type="PackedScene" uid="uid://6px7xjs10nlc" path="res://scene/proto_controller.tscn" id="13_44fbv"]
-[ext_resource type="PackedScene" uid="uid://b4gwb07a6jrjx" path="res://scene/store.tscn" id="14_l8r8p"]
+[ext_resource type="PackedScene" uid="uid://cq01ab3n1iiij" path="res://scene/store.tscn" id="14_l8r8p"]
+[ext_resource type="PackedScene" uid="uid://dyjn5hefnvec6" path="res://scene/enemy_one.tscn" id="15_gmpll"]
 
 [sub_resource type="Environment" id="Environment_xkx26"]
 background_mode = 2
-sky = ExtResource("1_ci171")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="TextureSetResource" id="TextureSetResource_23w2h"]
-name = "grass"
-albedoTexture = ExtResource("1_d6soc")
-normalTexture = ExtResource("2_uhta6")
-roughnessTexture = ExtResource("3_ewrs0")
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_3usmy"]
-name = "asphalt"
-albedoTexture = ExtResource("4_pbemj")
-normalTexture = ExtResource("5_ci171")
-roughnessTexture = ExtResource("6_w2mgo")
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_vnsgl"]
-albedoTexture = ExtResource("7_ce1f5")
-normalTexture = ExtResource("8_yxwfw")
-roughnessTexture = ExtResource("9_t1ou2")
-
-[sub_resource type="TextureSetsResource" id="TextureSetsResource_h4w2u"]
-textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_23w2h"), SubResource("TextureSetResource_3usmy"), SubResource("TextureSetResource_vnsgl")])
-
-[sub_resource type="ZoneResource" id="ZoneResource_wpp1k"]
-heightMapImage = ExtResource("1_rgtto")
-splatmapsImage = Array[Image]([ExtResource("5_d60jh")])
-
-[sub_resource type="ZonesResource" id="ZonesResource_h0nt1"]
-zones = Array[ZoneResource]([SubResource("ZoneResource_wpp1k")])
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_d6soc"]
-size = Vector3(244.2883, 1, 244.27667)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmpll"]
+albedo_color = Color(1.9974261e-06, 0.6129069, 0.15515366, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l8r8p"]
 material = SubResource("StandardMaterial3D_gmpll")
@@ -59,8 +18,14 @@ material = SubResource("StandardMaterial3D_gmpll")
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmpll"]
 size = Vector3(1, 0.001, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l8r8p"]
-size = Vector3(1.9370117, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0nt1"]
+albedo_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nf54y"]
+material = SubResource("StandardMaterial3D_h0nt1")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4xw1d"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="map" type="Node3D" unique_id=400858358]
 
@@ -71,17 +36,7 @@ environment = SubResource("Environment_xkx26")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="TerraBrush" type="TerraBrush" parent="." unique_id=77283939]
-dataPath = "res://scene/map"
-textureSets = SubResource("TextureSetsResource_h4w2u")
-terrainZones = SubResource("ZonesResource_h0nt1")
-metadata/_edit_lock_ = false
-
 [node name="Node3D" type="Node3D" parent="." unique_id=342167807]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=624645277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7889252, -0.11882782, -2.5128937)
-shape = SubResource("BoxShape3D_d6soc")
 
 [node name="safe zone" type="Node3D" parent="." unique_id=597149873]
 
@@ -94,15 +49,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49949998, 0)
 shape = SubResource("BoxShape3D_gmpll")
 
 [node name="ProtoController2" parent="." unique_id=1080846728 instance=ExtResource("13_44fbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411692, 0, -15.259129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411692, 0, -18.330612)
 
-[node name="Node3D2" parent="." unique_id=625243539 instance=ExtResource("14_l8r8p")]
-transform = Transform3D(1.1719583, 0, 0, 0, 1.1719583, 0, 0, 0, 1.1719583, -6.892686, 0.851676, -13.477838)
+[node name="store" parent="." unique_id=625243539 instance=ExtResource("14_l8r8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.925377, 0.50579655, 97.83525)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2" unique_id=335364870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46850586, 0, 0)
-shape = SubResource("BoxShape3D_l8r8p")
-disabled = true
+[node name="enemy one" parent="." unique_id=480861739 instance=ExtResource("15_gmpll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2876372, 1, -50.627605)
+
+[node name="map" type="MeshInstance3D" parent="." unique_id=706554411]
+transform = Transform3D(251.85759, 0, 0, 0, 0.27610752, 0, 0, 0, 251.1955, 0, 0, 0)
+mesh = SubResource("BoxMesh_nf54y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="map" unique_id=413552551]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map/StaticBody3D" unique_id=1545158441]
+shape = SubResource("ConcavePolygonShape3D_4xw1d")
 
 [editable path="ProtoController2"]
 [editable path="ProtoController2/bullet"]
