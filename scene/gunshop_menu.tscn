@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://db1bdcgmvdlko"]
+
+[ext_resource type="Texture2D" uid="uid://pmvp0mybv5ve" path="res://asset/Assets/board.png" id="1_27x04"]
+[ext_resource type="FontFile" uid="uid://cqvm4xv0go01e" path="res://asset/Assets/gunplay/gunplay rg.otf" id="2_b5om6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5om6"]
+texture = ExtResource("1_27x04")
+
+[node name="wepon shop" type="Control" unique_id=158876851]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2137307534]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1281.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b5om6")
+
+[node name="Label" type="Label" parent="Panel" unique_id=194526157]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 14.0
+offset_right = 1302.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("2_b5om6")
+theme_override_font_sizes/font_size = 82
+text = "gun shop"
+max_lines_visible = 21

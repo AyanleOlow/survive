@@ -1,0 +1,77 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cbc5fj5d34mm8"
+path="res://.godot/imported/futuristic low poly city by niko.fbx-1b364b34e86a7efcf4742d6988d2cd98.scn"
+
+[deps]
+
+source_file="res://asset/futuristic low poly city by niko.fbx"
+dest_files=["res://.godot/imported/futuristic low poly city by niko.fbx-1b364b34e86a7efcf4742d6988d2cd98.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=20.0
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"blue": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://asset/texture/Plastic015A_1K-JPG/Plastic015A_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Plastic015A_1K-JPG/Plastic015A_1K-JPG.tres"
+},
+"copper": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://asset/texture/Metal035_1K-JPG/Metal035_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Metal035_1K-JPG/Metal035_1K-JPG.tres"
+},
+"energy": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://asset/texture/Plastic017A_1K-JPG/Plastic017A_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Plastic017A_1K-JPG/Plastic017A_1K-JPG.tres"
+},
+"lights": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://asset/texture/Metal034_1K-JPG/Metal034_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Metal034_1K-JPG/Metal034_1K-JPG.tres"
+},
+"metalic dark gray": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://asset/texture/Metal061B_1K-JPG/Metal061B_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Metal061B_1K-JPG/Metal061B_1K-JPG.tres"
+},
+"metalic light gray": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://asset/texture/Metal041A_1K-JPG/Metal041A_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Metal041A_1K-JPG/Metal041A_1K-JPG.tres"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

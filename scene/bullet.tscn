@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dhv33c02u7vvv" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/bullet1.fbx" id="1_qwydi"]
 [ext_resource type="Script" uid="uid://ntr3ts2jrs4s" path="res://script/bullet.gd" id="1_xw300"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=665222422 groups=["enemy"]]
-transform = Transform3D(3.31, 0, 0, 0, 3.31, 0, 0, 0, 3.31, 0, 0, 0)
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=665222422 groups=["enemy", "player"]]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 script = ExtResource("1_xw300")
 
 [node name="bullet1" parent="." unique_id=1514437929 instance=ExtResource("1_qwydi")]
 
-[node name="bullet1" parent="bullet1" index="0" unique_id=650236630]
+[node name="bullet1" parent="bullet1" index="0" unique_id=518312885]
 transform = Transform3D(100, 0, 0, 0, -99.99999, 8.742277e-06, 0, -8.742277e-06, -99.99999, 0, 0, 0)
 custom_aabb = AABB(0, 0, 0, 0.065, 0, 0)
 

@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://pgswo066ih67" path="res://script/character_03.gd" id="1_lme34"]
 [ext_resource type="PackedScene" uid="uid://curh1xccwvytk" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/ak47.fbx" id="2_mikyi"]
 [ext_resource type="PackedScene" uid="uid://dcyh457nemrm4" path="res://scene/bullet.tscn" id="4_bqoe2"]
-[ext_resource type="PackedScene" uid="uid://jfwkiyg2guw6" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/shotgun.fbx" id="4_q0ujs"]
-[ext_resource type="PackedScene" uid="uid://cr4venp267bfj" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/rocketlaucher.fbx" id="5_qr3lo"]
-[ext_resource type="PackedScene" uid="uid://hv7shp1aiy6b" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/mac10.fbx" id="6_qr3lo"]
-[ext_resource type="PackedScene" uid="uid://cmvm2qwblftuw" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/pew.fbx" id="7_158px"]
+[ext_resource type="Script" uid="uid://bgvfiux8c6bcc" path="res://scene/FPSlabel.gd" id="5_bqoe2"]
+[ext_resource type="Script" uid="uid://d2caypn5quoqi" path="res://script/healthbar.gd" id="6_q0ujs"]
 [ext_resource type="Texture2D" uid="uid://dyt8lbq0kq25r" path="res://asset/PixelCrosshairs/Crosshairs/Normal/Crosshair06.png" id="8_158px"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -20,8 +18,28 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
+[sub_resource type="Theme" id="Theme_bqoe2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr3lo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_158px"]
+bg_color = Color(0.12644714, 0.70300996, 0.51133657, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6mwk"]
+bg_color = Color(0.24840015, 0.24840021, 0.24840006, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0.27265528, 0.2726553, 0.2726553, 0.6)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utynh"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["enemy", "player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
+collision_mask = 3
 script = ExtResource("1_lme34")
 bullet_scene = ExtResource("4_bqoe2")
 
@@ -40,25 +58,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1728271738]
 
-[node name="wepon_manger" type="Node3D" parent="Head/Camera3D" unique_id=608155912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
-
-[node name="FPS_Rig" type="Node3D" parent="Head/Camera3D/wepon_manger" unique_id=1418466901]
-
-[node name="ak47" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=84019092 instance=ExtResource("2_mikyi")]
-transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, 0.52751446, 1.3737454, -0.38223648)
-
-[node name="shotgun" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1325507123 instance=ExtResource("4_q0ujs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1340649, 0.41975784)
-
-[node name="rocketlaucher" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1954884506 instance=ExtResource("5_qr3lo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12700653, 0.9599633, 0.4386444)
-
-[node name="mac10" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1369930314 instance=ExtResource("6_qr3lo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4351349, 0.4010811)
-
-[node name="pew" parent="Head/Camera3D/wepon_manger/FPS_Rig" unique_id=1840987090 instance=ExtResource("7_158px")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24533749, 1.3974613, 0.37392807)
+[node name="ak47" parent="Head/Camera3D" unique_id=84019092 groups=["enemy", "player"] instance=ExtResource("2_mikyi")]
+transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, 0.52751446, -0.3262546, -0.38223648)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1099795065]
 
@@ -77,8 +78,54 @@ grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("8_158px")
 
+[node name="Label" type="Label" parent="Head/Camera3D/CanvasLayer" unique_id=1627488205]
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 234.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 46
+text = "FPS:"
+script = ExtResource("5_bqoe2")
+
+[node name="healthbar" type="ProgressBar" parent="Head/Camera3D/CanvasLayer" unique_id=370818128]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.07700001
+anchor_top = 0.083000004
+anchor_right = 0.21100001
+anchor_bottom = 0.15400001
+offset_left = -126.84001
+offset_top = 858.36
+offset_right = -99.120026
+offset_bottom = 830.68
+scale = Vector2(1.38, 1.38)
+theme = SubResource("Theme_bqoe2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_qr3lo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_158px")
+value = 100.0
+script = ExtResource("6_q0ujs")
+
+[node name="Damagebar" type="ProgressBar" parent="Head/Camera3D/CanvasLayer/healthbar" unique_id=873136042]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.72463703
+offset_right = -0.7246399
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_m6mwk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_utynh")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Head/Camera3D/CanvasLayer/healthbar" unique_id=741576301]
+wait_time = 0.4
+one_shot = true
+
 [node name="bullet" parent="." unique_id=209697533 instance=ExtResource("4_bqoe2")]
-transform = Transform3D(2, 0, 0, 0, 0.0031067438, 1.9999976, 0, -1.9999976, 0.0031067438, 0.5580797, 1.4126816, -1.0644264)
+transform = Transform3D(4.055, 0, 0, 0, 0.006298923, 4.054995, 0, -4.054995, 0.006298923, 0.5580797, 1.4126816, -1.0644264)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1736519447]
 
