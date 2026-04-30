@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export var bullet_scene: PackedScene
 @export var bullet_speed: float = 60.0
 
-## Can we move around?
+
 @export var can_move : bool = true
 @export var has_gravity : bool = true
 @export var can_jump : bool = true
@@ -32,6 +32,27 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 @export var input_freefly : String = "freefly"
 @export var input_shoot : String = "shoot"
+
+@onready var healthbar = $Head/Camera3D/CanvasLayer/healthbar
+
+var health: int = 6
+
+
+
+func _ready():
+	healthbar.init_health(health)
+
+func take_damage(amount: int):
+	health -= amount
+	healthbar.health = health
+	
+	if health <= 0:
+		die()
+
+func die():
+	queue_free()
+	
+
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -108,10 +129,6 @@ func shoot():
 	bullet.global_position = camera.global_transform.origin + -camera.global_transform.basis.z
  
 
-
-
-
-	
 
 
 func rotate_look(rot_input : Vector2):

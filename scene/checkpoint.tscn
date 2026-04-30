@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bcanh7bquxh2m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_njsvn"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_luqgl"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="checkpoint" type="Node3D" unique_id=1777061876]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1918023593]
+transform = Transform3D(1.9079348, 0, 0, 0, 0.15671527, 0, 0, 0, 1.6458709, 0, 0, 0)
+mesh = SubResource("BoxMesh_njsvn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=480394514]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=364036944]
+shape = SubResource("ConcavePolygonShape3D_luqgl")

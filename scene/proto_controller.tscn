@@ -42,6 +42,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 collision_mask = 3
 script = ExtResource("1_lme34")
 bullet_scene = ExtResource("4_bqoe2")
+bullet_speed = null
+can_move = null
+has_gravity = null
+can_jump = null
+can_sprint = null
+can_freefly = null
+look_speed = null
+base_speed = null
+jump_velocity = null
+sprint_speed = null
+freefly_speed = null
+input_left = null
+input_right = null
+input_forward = null
+input_back = null
+input_jump = null
+input_sprint = null
+input_freefly = null
+input_shoot = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=890973139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -128,6 +147,8 @@ one_shot = true
 transform = Transform3D(4.055, 0, 0, 0, 0.006298923, 4.054995, 0, -4.054995, 0.006298923, 0.5580797, 1.4126816, -1.0644264)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1736519447]
+
+[connection signal="timeout" from="Head/Camera3D/CanvasLayer/healthbar/Timer" to="Head/Camera3D/CanvasLayer/healthbar" method="_on_timer_timeout"]
 
 [editable path="bullet"]
 [editable path="bullet/bullet1"]

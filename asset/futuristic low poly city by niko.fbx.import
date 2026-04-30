@@ -60,14 +60,14 @@ _subresources={
 "use_external/path": "res://asset/texture/Metal034_1K-JPG/Metal034_1K-JPG.tres"
 },
 "metalic dark gray": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "res://asset/texture/Metal061B_1K-JPG/Metal061B_1K-JPG.tres",
 "use_external/path": "res://asset/texture/Metal061B_1K-JPG/Metal061B_1K-JPG.tres"
 },
 "metalic light gray": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://asset/texture/Metal041A_1K-JPG/Metal041A_1K-JPG.tres",
-"use_external/path": "res://asset/texture/Metal041A_1K-JPG/Metal041A_1K-JPG.tres"
+"use_external/fallback_path": "res://asset/texture/Road012A_1K-JPG/Road012A_1K-JPG.tres",
+"use_external/path": "res://asset/texture/Road012A_1K-JPG/Road012A_1K-JPG.tres"
 }
 }
 }

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhguvnepecvb4"]
 
-[ext_resource type="Script" uid="uid://dt03nrio5712i" path="res://damge_number.gd" id="1_tiu1r"]
+[ext_resource type="Script" uid="uid://dt03nrio5712i" path="res://script/damge_number.gd" id="1_tiu1r"]
 [ext_resource type="FontFile" uid="uid://cqvm4xv0go01e" path="res://asset/Assets/gunplay/gunplay rg.otf" id="2_31mpw"]
 
 [sub_resource type="Animation" id="Animation_jt6jf"]
