@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var label: Label3D = $Label3D
-@onready var anim: AnimationPlayer = $AnimationPlayer
+
 
 var velocity := Vector3.ZERO
 
@@ -14,8 +14,6 @@ func setup(damage: int):
 		randf_range(1.5, 2.5),
 		randf_range(-0.5, 0.5)
 	)
-
-	anim.play("float") # we'll make this animation
 
 func _process(delta):
 	translate(velocity * delta)

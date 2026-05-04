@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://pgswo066ih67" path="res://script/character_03.gd" id="1_lme34"]
 [ext_resource type="PackedScene" uid="uid://curh1xccwvytk" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/ak47.fbx" id="2_mikyi"]
 [ext_resource type="PackedScene" uid="uid://dcyh457nemrm4" path="res://scene/bullet.tscn" id="4_bqoe2"]
-[ext_resource type="Script" uid="uid://bgvfiux8c6bcc" path="res://scene/FPSlabel.gd" id="5_bqoe2"]
+[ext_resource type="Script" uid="uid://bgvfiux8c6bcc" path="res://script/FPSlabel.gd" id="5_bqoe2"]
 [ext_resource type="Script" uid="uid://d2caypn5quoqi" path="res://script/healthbar.gd" id="6_q0ujs"]
+[ext_resource type="FontFile" uid="uid://cfc1xtky2xhkp" path="res://asset/Assets/stohr_numbers/Stoehr Numbers.ttf" id="7_qr3lo"]
 [ext_resource type="Texture2D" uid="uid://dyt8lbq0kq25r" path="res://asset/PixelCrosshairs/Crosshairs/Normal/Crosshair06.png" id="8_158px"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -37,7 +38,10 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utynh"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["enemy", "player"]]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qr3lo"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 collision_mask = 3
 script = ExtResource("1_lme34")
@@ -143,12 +147,33 @@ show_percentage = false
 wait_time = 0.4
 one_shot = true
 
+[node name="Label2" type="Label" parent="Head/Camera3D/CanvasLayer" unique_id=628037800]
+offset_left = 635.0
+offset_top = 44.0
+offset_right = 1176.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("7_qr3lo")
+theme_override_font_sizes/font_size = 92
+text = "TIME: "
+
 [node name="bullet" parent="." unique_id=209697533 instance=ExtResource("4_bqoe2")]
 transform = Transform3D(4.055, 0, 0, 0, 0.006298923, 4.054995, 0, -4.054995, 0.006298923, 0.5580797, 1.4126816, -1.0644264)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1736519447]
 
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=269386034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.385, 0)
+visible = false
+billboard = 1
+transparent = false
+texture = SubResource("ViewportTexture_qr3lo")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1621018539]
+size = Vector2i(438, 55)
+
+[node name="Label3D" type="Label3D" parent="Sprite3D/SubViewport" unique_id=1779848724]
+
 [connection signal="timeout" from="Head/Camera3D/CanvasLayer/healthbar/Timer" to="Head/Camera3D/CanvasLayer/healthbar" method="_on_timer_timeout"]
 
 [editable path="bullet"]
-[editable path="bullet/bullet1"]
+[editable path="bullet/Area3D/bullet1"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyjn5hefnvec6"]
 
 [ext_resource type="FontFile" uid="uid://cqvm4xv0go01e" path="res://asset/Assets/gunplay/gunplay rg.otf" id="1_hwag2"]
-[ext_resource type="Script" uid="uid://bimej14l7hprl" path="res://scene/enemy.gd" id="1_nbr0x"]
+[ext_resource type="Script" uid="uid://bimej14l7hprl" path="res://script/enemy.gd" id="1_nbr0x"]
 [ext_resource type="PackedScene" uid="uid://bhguvnepecvb4" path="res://scene/damge_number.tscn" id="3_8i365"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbr0x"]
@@ -15,7 +15,7 @@ data = PackedVector3Array(0, 1, 0, 0, 1, 0, 0, 0.9924, -0.086799994, 0, 1, 0, -0
 
 [sub_resource type="Curve3D" id="Curve3D_8i365"]
 
-[node name="enemy one" type="Node3D" unique_id=480861739 groups=["enemy", "player"]]
+[node name="enemy one" type="Node3D" unique_id=480861739 groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07624757, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=741761118 groups=["enemy", "player"]]
@@ -40,9 +40,14 @@ font = ExtResource("1_hwag2")
 [node name="DamgeNumber" parent="CharacterBody3D" unique_id=616350947 groups=["enemy", "player"] instance=ExtResource("3_8i365")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.604874, 0.7)
 
+[node name="Label3D" parent="CharacterBody3D/DamgeNumber/anchore" parent_id_path=PackedInt32Array(616350947, 759151994) index="0" unique_id=788067635]
+visible = false
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=202392]
 
 [node name="Path3D" type="Path3D" parent="NavigationAgent3D" unique_id=979463660]
 curve = SubResource("Curve3D_8i365")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="NavigationAgent3D/Path3D" unique_id=2100624049]
+
+[editable path="CharacterBody3D/DamgeNumber"]
