@@ -41,30 +41,13 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_qr3lo"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_qr3lo"]
+
 [node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 collision_mask = 3
 script = ExtResource("1_lme34")
 bullet_scene = ExtResource("8_m6mwk")
-bullet_speed = null
-can_move = null
-has_gravity = null
-can_jump = null
-can_sprint = null
-can_freefly = null
-look_speed = null
-base_speed = null
-jump_velocity = null
-sprint_speed = null
-freefly_speed = null
-input_left = null
-input_right = null
-input_forward = null
-input_back = null
-input_jump = null
-input_sprint = null
-input_freefly = null
-input_shoot = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=890973139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -80,6 +63,7 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1728271738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.31040955)
 
 [node name="ak47" parent="Head/Camera3D" unique_id=84019092 groups=["enemy", "player"] instance=ExtResource("2_mikyi")]
 transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, 0.52751446, -0.3262546, -0.38223648)
@@ -175,6 +159,10 @@ texture = SubResource("ViewportTexture_qr3lo")
 size = Vector2i(438, 55)
 
 [node name="Label3D" type="Label3D" parent="Sprite3D/SubViewport" unique_id=1779848724]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=704448271]
+transform = Transform3D(0.46494317, 0, 0, 0, -0.005665071, 0.19704331, 0, 0.046547957, 0.023980953, 0.046113014, 1.4462587, -0.38663673)
+mesh = SubResource("CylinderMesh_qr3lo")
 
 [connection signal="timeout" from="Head/Camera3D/CanvasLayer/healthbar/Timer" to="Head/Camera3D/CanvasLayer/healthbar" method="_on_timer_timeout"]
 
