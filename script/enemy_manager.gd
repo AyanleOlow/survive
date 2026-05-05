@@ -10,10 +10,6 @@ func _ready():
 		if node.name.to_lower().contains("enemy"):
 			enemies.append(node)
 
-	# disable only enemies
-	for e in enemies:
-		disable_enemy(e)
-
 	spawn_next_enemy()
 	# disable all enemies first
 	for e in enemies:

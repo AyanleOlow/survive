@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pgswo066ih67" path="res://script/character_03.gd" id="1_lme34"]
 [ext_resource type="PackedScene" uid="uid://curh1xccwvytk" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/ak47.fbx" id="2_mikyi"]
-[ext_resource type="PackedScene" uid="uid://dcyh457nemrm4" path="res://scene/bullet.tscn" id="4_bqoe2"]
-[ext_resource type="Script" uid="uid://bgvfiux8c6bcc" path="res://script/FPSlabel.gd" id="5_bqoe2"]
+[ext_resource type="Script" uid="uid://bgvfiux8c6bcc" path="res://script/FPSlabel.gd" id="5_qr3lo"]
 [ext_resource type="Script" uid="uid://d2caypn5quoqi" path="res://script/healthbar.gd" id="6_q0ujs"]
 [ext_resource type="FontFile" uid="uid://cfc1xtky2xhkp" path="res://asset/Assets/stohr_numbers/Stoehr Numbers.ttf" id="7_qr3lo"]
 [ext_resource type="Texture2D" uid="uid://dyt8lbq0kq25r" path="res://asset/PixelCrosshairs/Crosshairs/Normal/Crosshair06.png" id="8_158px"]
+[ext_resource type="PackedScene" uid="uid://ci7hyo424jqer" path="res://scene/bullets.tscn" id="8_m6mwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -45,7 +45,7 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 collision_mask = 3
 script = ExtResource("1_lme34")
-bullet_scene = ExtResource("4_bqoe2")
+bullet_scene = ExtResource("8_m6mwk")
 bullet_speed = null
 can_move = null
 has_gravity = null
@@ -108,7 +108,7 @@ offset_right = 234.0
 offset_bottom = 114.0
 theme_override_font_sizes/font_size = 46
 text = "FPS:"
-script = ExtResource("5_bqoe2")
+script = ExtResource("5_qr3lo")
 
 [node name="healthbar" type="ProgressBar" parent="Head/Camera3D/CanvasLayer" unique_id=370818128]
 z_index = 1
@@ -156,8 +156,11 @@ theme_override_fonts/font = ExtResource("7_qr3lo")
 theme_override_font_sizes/font_size = 92
 text = "TIME: "
 
-[node name="bullet" parent="." unique_id=209697533 instance=ExtResource("4_bqoe2")]
-transform = Transform3D(4.055, 0, 0, 0, 0.006298923, 4.054995, 0, -4.054995, 0.006298923, 0.5580797, 1.4126816, -1.0644264)
+[node name="bullets" parent="Head/Camera3D/CanvasLayer" unique_id=1556396516 instance=ExtResource("8_m6mwk")]
+transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, -13.851116, 1.4007864, -25.276814)
+script = null
+
+[node name="bullet1" parent="Head/Camera3D/CanvasLayer/bullets" index="1" unique_id=1481386306 groups=["bullet"]]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1736519447]
 
@@ -175,5 +178,5 @@ size = Vector2i(438, 55)
 
 [connection signal="timeout" from="Head/Camera3D/CanvasLayer/healthbar/Timer" to="Head/Camera3D/CanvasLayer/healthbar" method="_on_timer_timeout"]
 
-[editable path="bullet"]
-[editable path="bullet/Area3D/bullet1"]
+[editable path="Head/Camera3D/CanvasLayer/bullets"]
+[editable path="Head/Camera3D/CanvasLayer/bullets/bullet1"]

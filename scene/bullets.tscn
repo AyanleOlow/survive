@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ci7hyo424jqer"]
+
+[ext_resource type="Script" uid="uid://c3exkdx71ocn6" path="res://script/bullets.gd" id="1_eha4u"]
+[ext_resource type="PackedScene" uid="uid://dhv33c02u7vvv" path="res://asset/Styloo Guns Asset Pack GLTF FBX V1.1/Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/FBX/bullet1.fbx" id="2_3psee"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y48fq"]
+radius = 0.0048828125
+height = 0.030670166
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eha4u"]
+radius = 0.001
+height = 0.0024414063
+
+[node name="Area3D" type="Area3D" unique_id=1556396516 groups=["bullet"]]
+script = ExtResource("1_eha4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1499278456]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000006, -1.4210855e-14, 0, 1.4210855e-14, 1.0000006, 0, 0.0052034743, 7.9341915e-16)
+shape = SubResource("CapsuleShape3D_y48fq")
+
+[node name="bullet1" parent="." unique_id=1481386306 instance=ExtResource("2_3psee")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bullet1/bullet1" parent_id_path=PackedInt32Array(1481386306, 1258908275) index="0" unique_id=1939466394]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bullet1/bullet1/StaticBody3D" unique_id=121509115]
+transform = Transform3D(0.13500005, 0, 0, 0, -0.0002049857, -0.13499993, 0, 0.13499993, -0.0002049857, 1.4056641e-05, -1.3379324e-05, 6.666627e-05)
+shape = SubResource("CapsuleShape3D_eha4u")
+
+[editable path="bullet1"]

@@ -7,10 +7,12 @@ extends CharacterBody3D
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 
 func take_damage(amount: int):
+	print("ENEMY HIT")   # 👈 add this
 	health -= amount
 
 	if health <= 0:
 		die()
 
 func die():
+	print("ENEMY DIED")  # 👈 add this
 	queue_free()
