@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://bjm25erp4sk4i" path="res://script/detection_zone.gd" id="5_jp76l"]
 [ext_resource type="PackedScene" uid="uid://cbc5fj5d34mm8" path="res://asset/futuristic low poly city by niko.fbx" id="6_bq37x"]
 [ext_resource type="PackedScene" uid="uid://bcanh7bquxh2m" path="res://scene/checkpoint.tscn" id="8_7ac5c"]
+[ext_resource type="PackedScene" uid="uid://c8hoaehgvi3vo" path="res://asset/Characters_psx (1)/Characters_psx/Models/Male/Character_04.fbx" id="9_0bc6k"]
 [ext_resource type="Script" uid="uid://cngqvq6fgj7ce" path="res://script/enemy_manager.gd" id="9_8qxkh"]
+[ext_resource type="PackedScene" uid="uid://bolfu8xgwkqht" path="res://asset/Characters_psx (1)/Characters_psx/Models/Female/Character_Female_14.fbx" id="10_8vfk2"]
 [ext_resource type="PackedScene" uid="uid://6px7xjs10nlc" path="res://scene/proto_controller.tscn" id="13_44fbv"]
 [ext_resource type="PackedScene" uid="uid://cq01ab3n1iiij" path="res://scene/store.tscn" id="14_l8r8p"]
 [ext_resource type="PackedScene" uid="uid://dyjn5hefnvec6" path="res://scene/enemy_one.tscn" id="15_gmpll"]
@@ -1006,6 +1008,12 @@ shape = SubResource("ConcavePolygonShape3D_1e0ei")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="futuristic low poly city by niko/Cube_004/StaticBody3D" unique_id=216513410]
 shape = SubResource("ConcavePolygonShape3D_3lgd6")
+
+[node name="Character_04" parent="." unique_id=90225613 instance=ExtResource("9_0bc6k")]
+transform = Transform3D(-0.49824667, 0, -0.49168107, 0, 0.7, 0, 0.49168107, 0, -0.49824667, 27.453424, 2.0478654, 12.256676)
+
+[node name="Character_Female_14" parent="." unique_id=121547710 instance=ExtResource("10_8vfk2")]
+transform = Transform3D(0.10100099, 0, -0.6926751, 0, 0.7, 0, 0.6926751, 0, 0.10100099, 27.323765, 2.0634384, 16.17308)
 
 [editable path="ProtoController2"]
 [editable path="ProtoController2/Head/Camera3D/CanvasLayer/bullets"]

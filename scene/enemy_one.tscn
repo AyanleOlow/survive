@@ -38,7 +38,4 @@ font = ExtResource("1_hwag2")
 [node name="DamgeNumber" parent="CharacterBody3D" unique_id=616350947 groups=["enemy", "player"] instance=ExtResource("3_8i365")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.604874, 0.7)
 
-[node name="Label3D" parent="CharacterBody3D/DamgeNumber/anchore" parent_id_path=PackedInt32Array(616350947, 759151994) index="0" unique_id=788067635]
-visible = false
-
 [editable path="CharacterBody3D/DamgeNumber"]

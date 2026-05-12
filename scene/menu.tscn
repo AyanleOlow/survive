@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://sbk5wwlgik6j" path="res://script/menu.gd" id="1_8hxod"]
 [ext_resource type="Script" uid="uid://jshlm27jo4d4" path="res://save_file.gd" id="1_bo06a"]
 [ext_resource type="Texture2D" uid="uid://bf0bfc7mj8crp" path="res://asset/Assets/MENU_WALLPAPER.png" id="2_bo06a"]
-[ext_resource type="Script" uid="uid://bepp8cey4nbnd" path="res://script/line_edit.gd" id="3_bo06a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hxod"]
 texture = ExtResource("2_bo06a")
@@ -42,10 +41,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = 66.0
-offset_right = -46.0
-offset_bottom = 66.0
+offset_left = -43.0
+offset_top = 53.0
+offset_right = -43.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8hxod")
@@ -91,13 +90,17 @@ script = ExtResource("1_bo06a")
 
 [node name="LineEdit" type="LineEdit" parent="username node" unique_id=2096615451]
 layout_mode = 0
-offset_left = 18.0
-offset_top = -90.0
-offset_right = 424.0
-offset_bottom = 14.0
+offset_left = 28.0
+offset_top = -70.0
+offset_right = 434.0
+offset_bottom = 34.0
 theme_override_font_sizes/font_size = 48
 text = "write username"
-script = ExtResource("3_bo06a")
+
+[node name="HTTPRequest" type="Control" parent="username node" unique_id=1463024224]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/start" to="username node" method="_on_start_pressed"]

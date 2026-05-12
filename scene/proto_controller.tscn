@@ -41,8 +41,6 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_qr3lo"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qr3lo"]
-
 [node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 collision_mask = 3
@@ -159,10 +157,6 @@ texture = SubResource("ViewportTexture_qr3lo")
 size = Vector2i(438, 55)
 
 [node name="Label3D" type="Label3D" parent="Sprite3D/SubViewport" unique_id=1779848724]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=704448271]
-transform = Transform3D(0.46494317, 0, 0, 0, -0.005665071, 0.19704331, 0, 0.046547957, 0.023980953, 0.046113014, 1.4462587, -0.38663673)
-mesh = SubResource("CylinderMesh_qr3lo")
 
 [connection signal="timeout" from="Head/Camera3D/CanvasLayer/healthbar/Timer" to="Head/Camera3D/CanvasLayer/healthbar" method="_on_timer_timeout"]
 
