@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c8ygmqeot27kt"]
+
+[ext_resource type="PackedScene" uid="uid://bolfu8xgwkqht" path="res://asset/Characters_psx (1)/Characters_psx/Models/Female/Character_Female_14.fbx" id="1_1e3yj"]
+[ext_resource type="Script" uid="uid://c5s1og5pnimpm" path="res://script/female_shop_npc.gd" id="1_5r6u8"]
+[ext_resource type="PackedScene" uid="uid://dwvlvdgabvkh2" path="res://scene/shop_ui.tscn" id="3_hqspl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5r6u8"]
+size = Vector3(4.4459534, 5.0637207, 3.0079803)
+
+[node name="female shop npc" type="Node3D" unique_id=1596885747]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, 0, 0, 0)
+script = ExtResource("1_5r6u8")
+
+[node name="Character_Female_14" parent="." unique_id=121547710 instance=ExtResource("1_1e3yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11526806, 0, 2.965265)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=611976645]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1463877192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20033264, 2.3909912, 3.5551987)
+shape = SubResource("BoxShape3D_5r6u8")
+
+[node name="interactText" type="Label3D" parent="." unique_id=957544783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.741482, 4.2343545)
+text = "Press E to interact"
+
+[node name="ShopUI" parent="." unique_id=673411223 instance=ExtResource("3_hqspl")]
+
+[node name="VScrollBar" parent="ShopUI/ScrollContainer" parent_id_path=PackedInt32Array(673411223, 1755956352) index="0" unique_id=630191062]
+value = 1.81
+
+[editable path="Character_Female_14"]
+[editable path="ShopUI"]

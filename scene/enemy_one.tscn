@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cqvm4xv0go01e" path="res://asset/Assets/gunplay/gunplay rg.otf" id="1_hwag2"]
 [ext_resource type="Script" uid="uid://bimej14l7hprl" path="res://script/enemy.gd" id="1_nbr0x"]
 [ext_resource type="PackedScene" uid="uid://bhguvnepecvb4" path="res://scene/damge_number.tscn" id="3_8i365"]
+[ext_resource type="Script" uid="uid://bjm25erp4sk4i" path="res://script/detection_zone.gd" id="3_a2jcu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8i365"]
 radius = 0.53222656
@@ -14,19 +15,28 @@ albedo_color = Color(0.240022, 0.24086037, 0.45768595, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8i365"]
 material = SubResource("StandardMaterial3D_nbr0x")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a2jcu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0k6nr"]
+size = Vector3(4.076355, 4.6875, 3.3670044)
+
 [node name="enemy one" type="Node3D" unique_id=480861739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07624757, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=741761118 groups=["enemy"]]
 script = ExtResource("1_nbr0x")
-damage_number_scene = ExtResource("3_8i365")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=536918800]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001953125, 0)
 shape = SubResource("CapsuleShape3D_8i365")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=854515139 groups=["enemy", "player"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=854515139 groups=["enemy"]]
 mesh = SubResource("CapsuleMesh_8i365")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CharacterBody3D/MeshInstance3D" unique_id=1899311384]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/MeshInstance3D/StaticBody3D" unique_id=1000418109]
+shape = SubResource("CapsuleShape3D_a2jcu")
 
 [node name="Label3D" type="Label3D" parent="CharacterBody3D" unique_id=1326831060 groups=["enemy", "player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2015243, 0)
@@ -35,7 +45,24 @@ billboard = 1
 text = "enemy"
 font = ExtResource("1_hwag2")
 
+[node name="detection zone" type="Area3D" parent="CharacterBody3D" unique_id=1460140631 groups=["enemy", "player"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_a2jcu")
+
+[node name="shot zone" type="CollisionShape3D" parent="CharacterBody3D/detection zone" unique_id=343703044 groups=["enemy", "player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5394602, 1.84375, -0.042022705)
+shape = SubResource("BoxShape3D_0k6nr")
+debug_color = Color(0.9246353, 0.25519076, 0.26850465, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D/detection zone/shot zone" unique_id=922129894]
+
 [node name="DamgeNumber" parent="CharacterBody3D" unique_id=616350947 groups=["enemy", "player"] instance=ExtResource("3_8i365")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.604874, 0.7)
+
+[node name="Label3D" parent="CharacterBody3D/DamgeNumber/anchore" parent_id_path=PackedInt32Array(616350947, 759151994) index="0" unique_id=788067635]
+visible = false
+
+[connection signal="body_entered" from="CharacterBody3D/detection zone" to="CharacterBody3D" method="_on_detection_zone_body_entered"]
 
 [editable path="CharacterBody3D/DamgeNumber"]

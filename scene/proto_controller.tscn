@@ -41,7 +41,7 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_qr3lo"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1080846728 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.411692, 0, -24.259129)
 collision_mask = 3
 script = ExtResource("1_lme34")

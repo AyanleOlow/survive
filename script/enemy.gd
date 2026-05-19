@@ -2,17 +2,17 @@ extends CharacterBody3D
 
 @export var speed: float = 4.0
 @export var health: int = 100
-@export var damage_number_scene: PackedScene
 
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 
-func take_damage(amount: int):
-	print("ENEMY HIT")   # 👈 add this
-	health -= amount
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("bullet"):
+		queue_free() # deletes the enemy instantly
+		body.queue_free() # deletes the bullet too
+		
+		
 
-	if health <= 0:
-		die()
-
-func die():
-	print("ENEMY DIED")  # 👈 add this
-	queue_free()
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("bullet"):
+		body.queue_free()
+		queue_free()

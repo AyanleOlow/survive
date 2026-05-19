@@ -90,17 +90,14 @@ script = ExtResource("1_bo06a")
 
 [node name="LineEdit" type="LineEdit" parent="username node" unique_id=2096615451]
 layout_mode = 0
-offset_left = 28.0
-offset_top = -70.0
-offset_right = 434.0
-offset_bottom = 34.0
+offset_left = 20.0
+offset_top = -75.0
+offset_right = 426.0
+offset_bottom = 29.0
 theme_override_font_sizes/font_size = 48
 text = "write username"
 
-[node name="HTTPRequest" type="Control" parent="username node" unique_id=1463024224]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HTTPRequest" type="HTTPRequest" parent="username node" unique_id=2102684491]
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/start" to="username node" method="_on_start_pressed"]
