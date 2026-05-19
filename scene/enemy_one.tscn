@@ -30,7 +30,7 @@ script = ExtResource("1_nbr0x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001953125, 0)
 shape = SubResource("CapsuleShape3D_8i365")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=854515139 groups=["enemy"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=854515139 groups=["enemy", "player"]]
 mesh = SubResource("CapsuleMesh_8i365")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CharacterBody3D/MeshInstance3D" unique_id=1899311384]
@@ -51,7 +51,7 @@ collision_mask = 2
 script = ExtResource("3_a2jcu")
 
 [node name="shot zone" type="CollisionShape3D" parent="CharacterBody3D/detection zone" unique_id=343703044 groups=["enemy", "player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5394602, 1.84375, -0.042022705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2627362, 1.84375, -0.042022705)
 shape = SubResource("BoxShape3D_0k6nr")
 debug_color = Color(0.9246353, 0.25519076, 0.26850465, 0.41960785)
 

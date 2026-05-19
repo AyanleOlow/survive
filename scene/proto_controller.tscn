@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://cfc1xtky2xhkp" path="res://asset/Assets/stohr_numbers/Stoehr Numbers.ttf" id="7_qr3lo"]
 [ext_resource type="Texture2D" uid="uid://dyt8lbq0kq25r" path="res://asset/PixelCrosshairs/Crosshairs/Normal/Crosshair06.png" id="8_158px"]
 [ext_resource type="PackedScene" uid="uid://ci7hyo424jqer" path="res://scene/bullets.tscn" id="8_m6mwk"]
+[ext_resource type="Script" uid="uid://cyw1c63bcdxg0" path="res://script/time.gd" id="8_utynh"]
+[ext_resource type="Texture2D" uid="uid://lucbrj7dsr0l" path="res://asset/Assets/human-skull.png" id="9_m6mwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -129,7 +131,7 @@ show_percentage = false
 wait_time = 0.4
 one_shot = true
 
-[node name="Label2" type="Label" parent="Head/Camera3D/CanvasLayer" unique_id=628037800]
+[node name="Time" type="Label" parent="Head/Camera3D/CanvasLayer" unique_id=628037800]
 offset_left = 635.0
 offset_top = 44.0
 offset_right = 1176.0
@@ -137,12 +139,32 @@ offset_bottom = 167.0
 theme_override_fonts/font = ExtResource("7_qr3lo")
 theme_override_font_sizes/font_size = 92
 text = "TIME: "
+script = ExtResource("8_utynh")
+
+[node name="Timer" type="Timer" parent="Head/Camera3D/CanvasLayer/Time" unique_id=1997476799]
 
 [node name="bullets" parent="Head/Camera3D/CanvasLayer" unique_id=1556396516 instance=ExtResource("8_m6mwk")]
 transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, -13.851116, 1.4007864, -25.276814)
 script = null
 
 [node name="bullet1" parent="Head/Camera3D/CanvasLayer/bullets" index="1" unique_id=1481386306 groups=["bullet"]]
+
+[node name="killsLabel" type="Label" parent="Head/Camera3D/CanvasLayer" unique_id=1983932151]
+offset_left = 1716.0
+offset_top = 38.0
+offset_right = 1870.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 52
+text = ":"
+
+[node name="killsimg" type="TextureRect" parent="Head/Camera3D/CanvasLayer/killsLabel" unique_id=770157824]
+layout_mode = 0
+offset_left = -68.99994
+offset_top = 1.999999
+offset_right = 443.00006
+offset_bottom = 514.0
+scale = Vector2(0.11371067, 0.13926528)
+texture = ExtResource("9_m6mwk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1736519447]
 
@@ -159,6 +181,7 @@ size = Vector2i(438, 55)
 [node name="Label3D" type="Label3D" parent="Sprite3D/SubViewport" unique_id=1779848724]
 
 [connection signal="timeout" from="Head/Camera3D/CanvasLayer/healthbar/Timer" to="Head/Camera3D/CanvasLayer/healthbar" method="_on_timer_timeout"]
+[connection signal="timeout" from="Head/Camera3D/CanvasLayer/Time/Timer" to="Head/Camera3D/CanvasLayer/Time" method="_on_timer_timeout"]
 
 [editable path="Head/Camera3D/CanvasLayer/bullets"]
 [editable path="Head/Camera3D/CanvasLayer/bullets/bullet1"]

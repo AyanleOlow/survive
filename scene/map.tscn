@@ -1,16 +1,27 @@
 [gd_scene format=4 uid="uid://di0q37lyfxuhw"]
 
 [ext_resource type="Script" uid="uid://8c6wucb0kpu5" path="res://script/map.gd" id="1_7ac5c"]
-[ext_resource type="Script" uid="uid://bjm25erp4sk4i" path="res://script/detection_zone.gd" id="5_jp76l"]
 [ext_resource type="PackedScene" uid="uid://cbc5fj5d34mm8" path="res://asset/futuristic low poly city by niko.fbx" id="6_bq37x"]
 [ext_resource type="PackedScene" uid="uid://bcanh7bquxh2m" path="res://scene/checkpoint.tscn" id="8_7ac5c"]
 [ext_resource type="PackedScene" uid="uid://c8ygmqeot27kt" path="res://scene/female_shop_npc.tscn" id="9_0bc6k"]
 [ext_resource type="Script" uid="uid://cngqvq6fgj7ce" path="res://script/enemy_manager.gd" id="9_8qxkh"]
 [ext_resource type="PackedScene" uid="uid://6px7xjs10nlc" path="res://scene/proto_controller.tscn" id="13_44fbv"]
-[ext_resource type="PackedScene" uid="uid://cq01ab3n1iiij" path="res://scene/store.tscn" id="14_l8r8p"]
 [ext_resource type="PackedScene" uid="uid://dyjn5hefnvec6" path="res://scene/enemy_one.tscn" id="15_gmpll"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8qxkh"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jp76l"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7ac5c"]
+sky_material = SubResource("ProceduralSkyMaterial_jp76l")
+
+[sub_resource type="Environment" id="Environment_8qxkh"]
+background_mode = 2
+sky = SubResource("Sky_7ac5c")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0bc6k"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0nt1"]
@@ -32,9 +43,6 @@ albedo_color = Color(0.240022, 0.24086037, 0.45768595, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bq37x"]
 material = SubResource("StandardMaterial3D_nbr0x")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bq37x"]
-size = Vector3(7.7991943, 4.6875, 17.231812)
 
 [sub_resource type="GDScript" id="GDScript_v66k7"]
 script/source = "# Attach this script to your MultiMeshInstance3D
@@ -453,6 +461,13 @@ data = PackedVector3Array(-0.02, 0.01, 0.01, -0.02, -0.01, 0.01, -0.02, -0.01, 0
 [node name="map" type="Node3D" unique_id=400858358]
 script = ExtResource("1_7ac5c")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=221840044]
+environment = SubResource("Environment_8qxkh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=774842279]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Node3D" type="Node3D" parent="." unique_id=342167807]
 
 [node name="ProtoController2" parent="." unique_id=1080846728 instance=ExtResource("13_44fbv")]
@@ -462,10 +477,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.386148, 3.8419785, 20.3262
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9000001, -0.23088264)
 
 [node name="Sprite3D" parent="ProtoController2" index="4" unique_id=269386034]
-texture = SubResource("ViewportTexture_8qxkh")
-
-[node name="store" parent="." unique_id=625243539 instance=ExtResource("14_l8r8p")]
-transform = Transform3D(-0.92977005, 0, -0.36814088, 0, 1, 0, 0.36814088, 0, -0.92977005, 15.064209, 0.50579655, 47.75476)
+texture = SubResource("ViewportTexture_0bc6k")
 
 [node name="map floor" type="MeshInstance3D" parent="." unique_id=706554411]
 transform = Transform3D(71.2398, 0, 0, 0, 0.27610752, 0, 0, 0, 62.37324, 7.0743694, 3.8146973e-06, -0.13750458)
@@ -498,18 +510,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013859749, 1, 0.042547226)
 
 [node name="MeshInstance3D" parent="all checkponts/checkpoint/enemy two/CharacterBody3D" parent_id_path=PackedInt32Array(1189984366, 741761118) index="1" unique_id=854515139]
 mesh = SubResource("CapsuleMesh_bq37x")
-
-[node name="detection zone2" type="Area3D" parent="all checkponts/checkpoint/enemy two/CharacterBody3D" parent_id_path=PackedInt32Array(1189984366, 741761118) index="3" unique_id=1219791931 groups=["enemy", "player"]]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("5_jp76l")
-
-[node name="shot zone" type="CollisionShape3D" parent="all checkponts/checkpoint/enemy two/CharacterBody3D/detection zone2" unique_id=393626090 groups=["enemy", "player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6780405, 1.84375, -6.9744263)
-shape = SubResource("BoxShape3D_bq37x")
-debug_color = Color(0.9246353, 0.25519076, 0.26850465, 0.41960785)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="all checkponts/checkpoint/enemy two/CharacterBody3D/detection zone2/shot zone" unique_id=109711910]
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="all checkponts/checkpoint" unique_id=1039729419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -2.041916, -22)

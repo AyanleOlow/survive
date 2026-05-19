@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://mayglrhr3jtt"]
+
+[node name="settings" type="Control" unique_id=1499102672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1227368525]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.01
+anchor_bottom = 1.0270001
+offset_right = -21.199951
+offset_bottom = -16.160034
