@@ -144,7 +144,7 @@ script = ExtResource("8_utynh")
 [node name="Timer" type="Timer" parent="Head/Camera3D/CanvasLayer/Time" unique_id=1997476799]
 
 [node name="bullets" parent="Head/Camera3D/CanvasLayer" unique_id=1556396516 instance=ExtResource("8_m6mwk")]
-transform = Transform3D(0.071979605, 0, 0.98402476, 0, 1.3378851, 0, -1.2460827, 0, 0.056841906, -13.851116, 1.4007864, -25.276814)
+transform = Transform3D(0.2072032, 0, 2.833277, 0, 3.852, 0, -3.5870204, 0, 0.16366343, -13.851116, 1.4007864, -25.276814)
 script = null
 
 [node name="bullet1" parent="Head/Camera3D/CanvasLayer/bullets" index="1" unique_id=1481386306 groups=["bullet"]]

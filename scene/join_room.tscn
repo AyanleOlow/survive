@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://db1bdcgmvdlko"]
+
+[ext_resource type="Script" uid="uid://cknxwdtmtn2rg" path="res://script/join_room.gd" id="1_w60id"]
+[ext_resource type="Texture2D" uid="uid://cbfplyir6py2q" path="res://asset/Assets/back.png" id="2_yj0xu"]
+[ext_resource type="FontFile" uid="uid://cxsrjpchac21i" path="res://asset/Assets/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-ExtraBold.woff2" id="3_yj0xu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nko0"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[node name="join room" type="Control" unique_id=158876851]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w60id")
+
+[node name="Panel" type="Panel" parent="." unique_id=2137307534]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1540.0
+scale = Vector2(1, 0.7064175)
+
+[node name="leave" type="Button" parent="." unique_id=893796382]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 29.0
+offset_right = 539.04
+offset_bottom = 541.0
+scale = Vector2(0.265, 0.265)
+pivot_offset = Vector2(-0.595, 0)
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nko0")
+icon = ExtResource("2_yj0xu")
+
+[node name="Label" type="Label" parent="." unique_id=819081003]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 68.0
+offset_right = 1035.0
+offset_bottom = 187.0
+theme_override_fonts/font = ExtResource("3_yj0xu")
+theme_override_font_sizes/font_size = 62
+text = "join a room "
+
+[connection signal="pressed" from="leave" to="." method="_on_leave_pressed"]

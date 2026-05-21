@@ -72,13 +72,30 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
 text = "start"
 
-[node name="setting" type="Button" parent="VBoxContainer" unique_id=2044165296]
+[node name="lobby" type="Button" parent="VBoxContainer" unique_id=2044165296]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_e5g8k")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
+text = "lobby"
+
+[node name="setting" type="Button" parent="VBoxContainer" unique_id=253084184]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = SubResource("FontVariation_e5g8k")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
 text = "settings"
+
+[node name="leave" type="Button" parent="VBoxContainer" unique_id=1239319613]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_e5g8k")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
+text = "leave
+"
 
 [node name="username node" type="Control" parent="." unique_id=33282650]
 anchors_preset = 0
@@ -101,5 +118,7 @@ text = "write username"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/start" to="username node" method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/lobby" to="." method="_on_lobby_pressed"]
 [connection signal="pressed" from="VBoxContainer/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]
 [connection signal="text_submitted" from="username node/LineEdit" to="." method="_on_line_edit_text_submitted"]

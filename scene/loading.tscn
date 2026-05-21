@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d2axgemekhn8r"]
+
+[ext_resource type="Script" uid="uid://u1orv1tc7nf4" path="res://script/loading.gd" id="1_bxkk0"]
+[ext_resource type="VideoStream" uid="uid://eh6lc4rkjxyg" path="res://asset/Assets/loading.ogv" id="1_qb5h4"]
+
+[node name="loading" type="Control" unique_id=1961082721]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bxkk0")
+
+[node name="Panel" type="Panel" parent="." unique_id=514818905]
+layout_mode = 0
+offset_right = 1922.0
+offset_bottom = 1097.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1732123364]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 0.9850001
+offset_right = 1.9199219
+offset_bottom = 16.199951
+stream = ExtResource("1_qb5h4")
+autoplay = true
+loop = true

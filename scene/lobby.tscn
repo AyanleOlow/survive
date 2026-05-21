@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cy4bxwo41l17e"]
+
+[ext_resource type="Script" uid="uid://5fbga1l4gcxo" path="res://script/lobby.gd" id="1_y7qk6"]
+[ext_resource type="Texture2D" uid="uid://cbfplyir6py2q" path="res://asset/Assets/back.png" id="2_hmohn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofneh"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 37
+border_width_right = 52
+border_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+shadow_color = Color(0.6434828, 0.7382678, 0.6196224, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfmeg"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 43
+border_width_right = 38
+border_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.8179707, 0.80771667, 0.7612076, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tjn4"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[node name="lobby" type="Control" unique_id=867373643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7qk6")
+
+[node name="Panel" type="Panel" parent="." unique_id=1500372409]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 0.9990001
+offset_right = -0.92004395
+offset_bottom = 0.079956055
+
+[node name="Label" type="Label" parent="." unique_id=30041987]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.26700002
+anchor_bottom = 0.105000004
+offset_left = 373.0
+offset_top = 112.0
+offset_right = 986.36
+offset_bottom = 128.6
+theme_override_font_sizes/font_size = 49
+text = "welcome to lobby choose to create or join room"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1390334605]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -468.0
+offset_top = -83.0
+offset_right = 470.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 206
+
+[node name="join room" type="Button" parent="VBoxContainer" unique_id=19619296]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxFlat_ofneh")
+text = "join room"
+
+[node name="create room" type="Button" parent="VBoxContainer" unique_id=107391418]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxFlat_kfmeg")
+text = "create room"
+
+[node name="leave" type="Button" parent="." unique_id=289122929]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 26.0
+offset_right = 536.04
+offset_bottom = 538.0
+scale = Vector2(0.265, 0.265)
+pivot_offset = Vector2(-0.595, 0)
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tjn4")
+icon = ExtResource("2_hmohn")
+
+[connection signal="pressed" from="VBoxContainer/join room" to="." method="_on_join_room_pressed"]
+[connection signal="pressed" from="VBoxContainer/create room" to="." method="_on_create_room_pressed"]
+[connection signal="pressed" from="leave" to="." method="_on_leave_pressed"]

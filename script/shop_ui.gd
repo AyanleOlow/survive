@@ -10,6 +10,7 @@ var items = {
 
 func _ready():
 	visible = false
+	return
 	player_inventory = get_node("/root/Game/PlayerInventory")
 
 func open():

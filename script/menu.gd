@@ -12,8 +12,16 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/map.tscn")
+	get_tree().change_scene_to_file("res://scene/loading.tscn")
 
 
 func _on_setting_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/settings.tscn")
+
+
+func _on_lobby_pressed() -> void:
+	get_tree().change_scene_to_file("res://scene/lobby.tscn")
+
+
+func _on_leave_pressed() -> void:
+	get_tree().quit()

@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var label: Label3D = $Label3D
+@onready var label: Label3D = $anchore/Label3D
 
 
 var velocity := Vector3.ZERO
