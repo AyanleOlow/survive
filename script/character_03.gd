@@ -74,8 +74,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_look(event.relative)
 
 	# 🔥 FIXED SHOOT INPUT (no spam / no weird behavior)
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		shoot()
+	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#shoot()
 	
 	# Freefly toggle
 	if can_freefly and Input.is_action_just_pressed(input_freefly):
@@ -119,15 +119,15 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-# 🔫 FIXED SHOOT FUNCTION
-func shoot():
-	var bullet = bullet_scene.instantiate()
-	get_tree().current_scene.add_child(bullet)
-
-	bullet.global_transform.basis = camera.global_transform.basis.orthonormalized()
-
-	bullet.global_position = camera.global_transform.origin + -camera.global_transform.basis.z
- 
+## 🔫 FIXED SHOOT FUNCTION
+#func shoot():
+	#var bullet = bullet_scene.instantiate()
+	#get_tree().current_scene.add_child(bullet)
+#
+	#bullet.global_transform.basis = camera.global_transform.basis.orthonormalized()
+#
+	#bullet.global_position = camera.global_transform.origin + -camera.global_transform.basis.z
+ #
 
 
 

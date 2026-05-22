@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bfwk72ah87das"]
+
+[ext_resource type="PackedScene" uid="uid://silg1ees1o0w" path="res://asset/Assets/mesh.fbx" id="1_r0laq"]
+[ext_resource type="PackedScene" uid="uid://6px7xjs10nlc" path="res://scene/proto_controller.tscn" id="2_sfl3n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sfl3n"]
+size = Vector3(0.5551758, 0.5215454, 0.001)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x2hdw"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Node3D" type="Node3D" unique_id=1842821380]
+
+[node name="mesh" parent="." unique_id=603225568 instance=ExtResource("1_r0laq")]
+transform = Transform3D(431.46317, 0, 0, 0, 58.064728, 0, 0, 0, 357.34232, 0.024484158, 0, 1.3514831)
+
+[node name="Plane" parent="mesh" index="0" unique_id=1361609290]
+transform = Transform3D(128.74767, 0, 0, 0, -1.5805648e-05, 99.99999, 0, -132.58734, -1.1920927e-05, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="mesh/Plane" index="0" unique_id=1192353027]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/Plane/StaticBody3D" unique_id=2134538493]
+transform = Transform3D(0.039999995, 0, 0, 0, 0.04, 0, 0, -8.881784e-16, 0.040000003, -0.00014649254, -0.00021590291, 0.00010227018)
+shape = SubResource("BoxShape3D_sfl3n")
+
+[node name="Player" parent="." unique_id=1080846728 instance=ExtResource("2_sfl3n")]
+transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 5.1035433, 0.7819638, 9.325228)
+
+[node name="ak47" parent="Player/Head/Camera3D" parent_id_path=PackedInt32Array(1080846728, 1728271738) index="0" unique_id=84019092]
+visible = false
+
+[node name="bullets" parent="Player/Head/Camera3D/CanvasLayer" parent_id_path=PackedInt32Array(1080846728, 1099795065) index="4" unique_id=1556396516]
+visible = false
+
+[node name="Sprite3D" parent="Player" index="4" unique_id=269386034]
+texture = SubResource("ViewportTexture_x2hdw")
+
+[editable path="mesh"]
+[editable path="Player"]
+[editable path="Player/Head/Camera3D/CanvasLayer/bullets"]
+[editable path="Player/Head/Camera3D/CanvasLayer/bullets/bullet1"]

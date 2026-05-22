@@ -145,9 +145,8 @@ script = ExtResource("8_utynh")
 
 [node name="bullets" parent="Head/Camera3D/CanvasLayer" unique_id=1556396516 instance=ExtResource("8_m6mwk")]
 transform = Transform3D(0.2072032, 0, 2.833277, 0, 3.852, 0, -3.5870204, 0, 0.16366343, -13.851116, 1.4007864, -25.276814)
-script = null
 
-[node name="bullet1" parent="Head/Camera3D/CanvasLayer/bullets" index="1" unique_id=1481386306 groups=["bullet"]]
+[node name="bullet1" parent="Head/Camera3D/CanvasLayer/bullets" index="0" unique_id=1514437929 groups=["bullet"]]
 
 [node name="killsLabel" type="Label" parent="Head/Camera3D/CanvasLayer" unique_id=1983932151]
 offset_left = 1716.0
