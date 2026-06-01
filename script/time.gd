@@ -1,6 +1,6 @@
 extends Label
 
-var time_left = 30
+var time_left = 0
 
 func _ready():
 	text = "TIME: " + str(time_left)
@@ -9,7 +9,7 @@ func _ready():
 	$Timer.start()
 
 func _on_timer_timeout():
-	time_left -= 1
+	time_left += 1
 
 	text = "TIME: " + str(time_left)
 
