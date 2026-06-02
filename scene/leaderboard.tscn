@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://tlbdcqc2xbkv"]
+
+[ext_resource type="Texture2D" uid="uid://cbfplyir6py2q" path="res://asset/Assets/back.png" id="1_mndqq"]
+[ext_resource type="Script" uid="uid://bb413xrwuti6d" path="res://scene/leaderboard.gd" id="1_xh7tj"]
+[ext_resource type="FontFile" uid="uid://cxsrjpchac21i" path="res://asset/Assets/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-ExtraBold.woff2" id="2_xh7tj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orpx0"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[node name="leaderboard" type="Control" unique_id=1096185386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xh7tj")
+
+[node name="Panel" type="Panel" parent="." unique_id=417119827]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1540.0
+scale = Vector2(1, 0.7064175)
+
+[node name="leave" type="Button" parent="." unique_id=1325625438]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 29.0
+offset_right = 539.04
+offset_bottom = 541.0
+scale = Vector2(0.265, 0.265)
+pivot_offset = Vector2(-0.595, 0)
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_orpx0")
+icon = ExtResource("1_mndqq")
+
+[node name="Label" type="Label" parent="." unique_id=149976330]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 30.0
+offset_right = 1181.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("2_xh7tj")
+theme_override_font_sizes/font_size = 62
+text = "Leaderboard"
+
+[connection signal="pressed" from="leave" to="." method="_on_leave_pressed"]

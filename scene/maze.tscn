@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfl3n"]
 size = Vector3(0.5551758, 0.5215454, 0.001)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sfl3n"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x2hdw"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2hdw"]
@@ -29,7 +29,7 @@ size = Vector3(2.1543427, 3.8336182, 11.666313)
 [node name="mesh" parent="." unique_id=603225568 instance=ExtResource("1_r0laq")]
 transform = Transform3D(50.269737, 0, 0, 0, 36.913273, 0, 0, 0, 78.534256, 0.024484158, 0, 1.3514831)
 
-[node name="Plane" parent="mesh" index="0" unique_id=1361609290]
+[node name="Plane" parent="mesh" index="0" unique_id=868221269]
 transform = Transform3D(128.74767, 0, 0, 0, -1.5805648e-05, 99.99999, 0, -132.58734, -1.1920927e-05, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="mesh/Plane" index="0" unique_id=1192353027]
@@ -48,7 +48,7 @@ visible = false
 visible = false
 
 [node name="Sprite3D" parent="Player" index="4" unique_id=269386034]
-texture = SubResource("ViewportTexture_sfl3n")
+texture = SubResource("ViewportTexture_x2hdw")
 
 [node name="collison maze wall" type="Node3D" parent="." unique_id=1468199401]
 

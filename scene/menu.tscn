@@ -72,6 +72,14 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
 text = "start"
 
+[node name="leaderboard" type="Button" parent="VBoxContainer" unique_id=881973137]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_e5g8k")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hxod")
+text = "leaderboard"
+
 [node name="lobby" type="Button" parent="VBoxContainer" unique_id=2044165296]
 layout_mode = 2
 size_flags_vertical = 3
@@ -118,6 +126,7 @@ text = "write username"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/start" to="username node" method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="VBoxContainer/lobby" to="." method="_on_lobby_pressed"]
 [connection signal="pressed" from="VBoxContainer/setting" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]

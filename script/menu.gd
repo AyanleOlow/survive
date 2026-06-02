@@ -25,3 +25,7 @@ func _on_lobby_pressed() -> void:
 
 func _on_leave_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_leaderboard_pressed() -> void:
+	get_tree().change_scene_to_file("res://scene/leaderboard.tscn")
