@@ -2,14 +2,14 @@
 
 ## Om prosjektet
 
-dette er et spill laget i godot der hoved fokuse er at man skal overleve. det er en rough like game der man skal drepe monstere opgraddere våpen
+dette er et spill laget i godot der hoved fokuse er at man skal komme deg slutten av mazen. det er at måle er å bli ferdig så fort som mulig.
 
 ### Hva jeg gjorde
 
 - legge til bevege karakter
 - legge til en enmy
 - legge til map
-- legge til våpen
+- legge til maze
 
 
 ### Hva jeg lærte
