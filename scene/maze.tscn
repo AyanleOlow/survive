@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfl3n"]
 size = Vector3(0.5551758, 0.5215454, 0.001)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_x2hdw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s8oxp"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2hdw"]
@@ -24,12 +24,21 @@ size = Vector3(7.3103943, 3.8336182, 3.639862)
 [sub_resource type="BoxShape3D" id="BoxShape3D_88ram"]
 size = Vector3(2.1543427, 3.8336182, 11.666313)
 
+[sub_resource type="BoxMesh" id="BoxMesh_sfl3n"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x2hdw"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="Node3D" type="Node3D" unique_id=1842821380]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=961805028]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="mesh" parent="." unique_id=603225568 instance=ExtResource("1_r0laq")]
 transform = Transform3D(50.269737, 0, 0, 0, 36.913273, 0, 0, 0, 78.534256, 0.024484158, 0, 1.3514831)
 
-[node name="Plane" parent="mesh" index="0" unique_id=868221269]
+[node name="Plane" parent="mesh" index="0" unique_id=1361609290]
 transform = Transform3D(128.74767, 0, 0, 0, -1.5805648e-05, 99.99999, 0, -132.58734, -1.1920927e-05, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="mesh/Plane" index="0" unique_id=1192353027]
@@ -44,11 +53,21 @@ transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 5.1035433, 4.370507,
 [node name="ak47" parent="Player/Head/Camera3D" parent_id_path=PackedInt32Array(1080846728, 1728271738) index="0" unique_id=84019092]
 visible = false
 
+[node name="Label" parent="Player/Head/Camera3D/CanvasLayer" parent_id_path=PackedInt32Array(1080846728, 1099795065) index="1" unique_id=1627488205]
+offset_left = 34.0
+offset_right = 238.0
+
+[node name="healthbar" parent="Player/Head/Camera3D/CanvasLayer" parent_id_path=PackedInt32Array(1080846728, 1099795065) index="2" unique_id=370818128]
+visible = false
+
 [node name="bullets" parent="Player/Head/Camera3D/CanvasLayer" parent_id_path=PackedInt32Array(1080846728, 1099795065) index="4" unique_id=1556396516]
 visible = false
 
+[node name="killsLabel" parent="Player/Head/Camera3D/CanvasLayer" parent_id_path=PackedInt32Array(1080846728, 1099795065) index="5" unique_id=1983932151]
+visible = false
+
 [node name="Sprite3D" parent="Player" index="4" unique_id=269386034]
-texture = SubResource("ViewportTexture_x2hdw")
+texture = SubResource("ViewportTexture_s8oxp")
 
 [node name="collison maze wall" type="Node3D" parent="." unique_id=1468199401]
 
@@ -104,6 +123,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.933654, 0, -8.327099)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collison maze wall/MeshInstance3D5/MeshInstance3D5/StaticBody3D" unique_id=1876572408]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4725475, 1.9701571, 9.858166)
 shape = SubResource("BoxShape3D_88ram")
+
+[node name="exit point" type="MeshInstance3D" parent="." unique_id=1776979652]
+transform = Transform3D(1, 0, 0, 0, 4.328832, 0, 0, 0, 3.8324978, -61.2665, 1.5442474, -2.7850456)
+mesh = SubResource("BoxMesh_sfl3n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="exit point" unique_id=231323224]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="exit point/StaticBody3D" unique_id=356732254]
+shape = SubResource("ConcavePolygonShape3D_x2hdw")
+
+[node name="Label3D" type="Label3D" parent="exit point" unique_id=1539001689]
+transform = Transform3D(-0.030914245, 0, 0.98158294, 0, 0.9999993, 0, -0.3910572, 0, -0.07759705, 0.53398514, 0.21383014, 0.028153777)
+text = "du er ferdig med mazen
+click \"esc\" for å save løpe ditt
+"
 
 [editable path="mesh"]
 [editable path="Player"]

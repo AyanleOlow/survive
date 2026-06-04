@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sbk5wwlgik6j" path="res://script/menu.gd" id="1_8hxod"]
 [ext_resource type="Script" uid="uid://jshlm27jo4d4" path="res://save_file.gd" id="1_bo06a"]
-[ext_resource type="Texture2D" uid="uid://bf0bfc7mj8crp" path="res://asset/Assets/MENU_WALLPAPER.png" id="2_bo06a"]
+[ext_resource type="Texture2D" uid="uid://dvqpunnuxafae" path="res://asset/Assets/maze wallpaper.png" id="2_bo06a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hxod"]
 texture = ExtResource("2_bo06a")
@@ -41,10 +41,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -43.0
-offset_top = 53.0
-offset_right = -43.0
-offset_bottom = 53.0
+offset_left = -45.0
+offset_top = 54.0
+offset_right = -45.0
+offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8hxod")
@@ -56,10 +56,10 @@ anchor_left = 0.48700002
 anchor_top = 0.90000004
 anchor_right = 0.48700002
 anchor_bottom = 0.90000004
-offset_left = -211.02405
-offset_top = -118.20001
-offset_right = 209.97595
-offset_bottom = 80.79999
+offset_left = -211.50104
+offset_top = -314.7
+offset_right = 209.49896
+offset_bottom = 26.299988
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
@@ -131,3 +131,4 @@ text = "write username"
 [connection signal="pressed" from="VBoxContainer/setting" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]
 [connection signal="text_submitted" from="username node/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="request_completed" from="username node/HTTPRequest" to="username node" method="_on_http_request_request_completed"]

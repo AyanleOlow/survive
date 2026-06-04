@@ -1,8 +1,24 @@
-[gd_scene format=3 uid="uid://tlbdcqc2xbkv"]
+[gd_scene format=3 uid="uid://cbihkn4xnl2iv"]
 
 [ext_resource type="Texture2D" uid="uid://cbfplyir6py2q" path="res://asset/Assets/back.png" id="1_mndqq"]
-[ext_resource type="Script" uid="uid://bb413xrwuti6d" path="res://scene/leaderboard.gd" id="1_xh7tj"]
+[ext_resource type="Script" path="res://scene/leaderboard.gd" id="1_xh7tj"]
+[ext_resource type="Script" uid="uid://daecul0owlyaa" path="res://scene/username_leaderboard.gd" id="2_orpx0"]
 [ext_resource type="FontFile" uid="uid://cxsrjpchac21i" path="res://asset/Assets/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-ExtraBold.woff2" id="2_xh7tj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh7tj"]
+bg_color = Color(0.427493, 0.42749307, 0.42749295, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c111l"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 883
+border_width_top = 224
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c111l"]
+font_size = 67
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4ito"]
+font_size = 77
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orpx0"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
@@ -21,6 +37,37 @@ layout_mode = 0
 offset_right = 1919.0
 offset_bottom = 1540.0
 scale = Vector2(1, 0.7064175)
+theme_override_styles/panel = SubResource("StyleBoxFlat_xh7tj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1113689317]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 327.0021
+offset_right = 1446.0
+offset_bottom = 551.0021
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=613577787]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_c111l")
+
+[node name="usernameLeaderboard" type="Label" parent="Panel/VBoxContainer/Button" unique_id=1659757934]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 46.71458
+offset_right = 359.0
+offset_bottom = 150.05289
+text = "username"
+label_settings = SubResource("LabelSettings_c111l")
+script = ExtResource("2_orpx0")
+
+[node name="time" type="Label" parent="Panel/VBoxContainer/Button" unique_id=375888101]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 49.54577
+offset_right = 754.0
+offset_bottom = 169.87122
+text = "TIME"
+label_settings = SubResource("LabelSettings_c4ito")
 
 [node name="leave" type="Button" parent="." unique_id=1325625438]
 layout_mode = 0
